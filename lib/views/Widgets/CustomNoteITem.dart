@@ -53,7 +53,7 @@ class CustomNoteITem extends StatelessWidget {
             child: Text(
 
               noteDate!,
-              style: TextStyle(fontSize: 16, color: Colors.grey.withOpacity(.7),fontFamily: 'Motken'),
+              style: TextStyle(fontSize: 16, color: Colors.grey[800],fontFamily: 'Motken'),
             ),
           )
         ],
