@@ -16,6 +16,7 @@ class CustomFormTextField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.onChanged,
+    this.maxline=1,
     this.onSubmitted,
     this.controller,
     this.validator,
@@ -35,6 +36,7 @@ class CustomFormTextField extends StatelessWidget {
   Color? suffixIconColor;
   Color? textColor;
   Color enabledBorderColor;
+  int maxline;
   bool obscureText;
   TextEditingController? controller;
   Function(String)? onChanged;
@@ -47,6 +49,7 @@ class CustomFormTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
+      maxLines: maxline,
       obscureText: obscureText,
       onFieldSubmitted: onSubmitted,
       validator: validator,
