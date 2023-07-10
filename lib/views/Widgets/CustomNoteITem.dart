@@ -17,7 +17,7 @@ class CustomNoteITem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.yellow, borderRadius: BorderRadius.circular(16)),
+          color: Color(0xfff7cd72), borderRadius: BorderRadius.circular(16)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
@@ -44,6 +44,7 @@ class CustomNoteITem extends StatelessWidget {
                 onPressed: () {},
                 icon: Icon(
                   Icons.delete,
+                  size: 40,
                   color: Colors.black,
                 )),
           ),
@@ -52,7 +53,7 @@ class CustomNoteITem extends StatelessWidget {
             child: Text(
 
               noteDate!,
-              style: TextStyle(fontSize: 16, color: Colors.grey[800],fontFamily: 'Motken'),
+              style: TextStyle(fontSize: 16, color: Colors.grey.withOpacity(.7),fontFamily: 'Motken'),
             ),
           )
         ],
