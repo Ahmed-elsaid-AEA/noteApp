@@ -27,6 +27,7 @@ class CustomNoteITem extends StatelessWidget {
               child: Text(
                 noteTitle!,
                 style: TextStyle(
+                fontFamily: 'Motken',
                     color: Colors.black,
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
@@ -36,7 +37,7 @@ class CustomNoteITem extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 8),
               child: Text(
                 noteTitle!,
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: Colors.black,fontFamily: 'Motken'),
               ),
             ),
             trailing: IconButton(
@@ -49,8 +50,9 @@ class CustomNoteITem extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8),
             child: Text(
+
               noteDate!,
-              style: TextStyle(fontSize: 16, color: Colors.grey[800]),
+              style: TextStyle(fontSize: 16, color: Colors.grey[800],fontFamily: 'Motken'),
             ),
           )
         ],
