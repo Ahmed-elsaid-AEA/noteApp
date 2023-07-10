@@ -36,7 +36,7 @@ class CustomNoteITem extends StatelessWidget {
             subtitle: Padding(
               padding: const EdgeInsets.symmetric(vertical: 8),
               child: Text(
-                noteTitle!,
+                noteText!,
                 style: TextStyle(color: Colors.black,fontFamily: 'Motken'),
               ),
             ),

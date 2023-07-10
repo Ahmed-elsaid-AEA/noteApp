@@ -13,6 +13,10 @@ class NotesViewBody extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(32),
+                      topRight: Radius.circular(32))),
               context: context,
               builder: (context) {
                 return AddNoteBottomSheet();
@@ -34,7 +38,7 @@ class NotesViewBody extends StatelessWidget {
                     itemBuilder: (context, index) => CustomNoteITem(
                           noteDate: DateTime.now().toString().substring(0, 11),
                           noteText: 'text',
-                          noteTitle: 'thitle',
+                          noteTitle: 'titel',
                         ),
                     separatorBuilder: (context, index) => SizedBox(height: 20),
                     itemCount: 10),
