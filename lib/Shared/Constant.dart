@@ -1,0 +1,1 @@
+const String kNotesViewBody="NotesViewBody";
