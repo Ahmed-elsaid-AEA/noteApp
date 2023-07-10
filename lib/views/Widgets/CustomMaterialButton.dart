@@ -31,7 +31,8 @@ class CustomMaterialButton extends StatelessWidget {
       minWidth: widthButton,
       color: backgroundButton,
       onPressed: onPressed,
-      child: Text(textButton),
+
+      child: Text(textButton,style: TextStyle(fontSize: 20),),
     );
   }
 }
