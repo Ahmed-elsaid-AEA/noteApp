@@ -16,13 +16,15 @@ class CustomFormTextField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.onChanged,
-    this.maxline=1,
+    this.maxline = 1,
     this.onSubmitted,
     this.controller,
     this.validator,
     this.onPrefixIConPressed,
+    this.onSaved,
     this.onSuffixIConPressed,
     this.obscureText = false,
+
   });
 
   String? hintText;
@@ -39,15 +41,17 @@ class CustomFormTextField extends StatelessWidget {
   int maxline;
   bool obscureText;
   TextEditingController? controller;
-  Function(String)? onChanged;
-  Function(String)? onSubmitted;
+  Function(String value)? onChanged;
+  Function(String value)? onSubmitted;
   Function()? onPrefixIConPressed;
   Function()? onSuffixIConPressed;
+  Function(String? value)? onSaved;
   String? Function(String? value)? validator;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onSaved: onSaved,
       controller: controller,
       maxLines: maxline,
       obscureText: obscureText,

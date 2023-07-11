@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+
 import 'package:note_app/Shared/Constant.dart';
 import 'package:note_app/views/Widgets/NotesViewBody.dart';
 
-void main() {
-  runApp(const NoteApp());
+import 'package:hive_flutter/hive_flutter.dart';
+
+void main() async {
+  try {
+    await Hive.initFlutter();
+    await Hive.openBox(kNoteBox);
+    runApp(const NoteApp());
+  } catch (ex) {
+    print(ex.toString());
+  }
 }
 
 class NoteApp extends StatelessWidget {
@@ -12,7 +21,7 @@ class NoteApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-theme: ThemeData.dark(),
+      theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       initialRoute: kNotesViewBody,
       routes: {kNotesViewBody: (context) => NotesViewBody()},
