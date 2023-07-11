@@ -1,17 +1,39 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:note_app/cubits/addNewCubit/add_note_cubit.dart';
 import 'package:note_app/views/Widgets/CustomFormTextField.dart';
 import 'package:note_app/views/Widgets/CustomMaterialButton.dart';
 
-class AddNoteBottomSheet extends StatelessWidget {
+class AddNoteBottomSheet extends StatefulWidget {
   const AddNoteBottomSheet({super.key});
+
+  @override
+  State<AddNoteBottomSheet> createState() => _AddNoteBottomSheetState();
+}
+
+class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: AddNoteForm(),
+        child: BlocConsumer<AddNoteCubit, AddNoteState>(
+          listener: (context, state) {
+            if (state is AddNoteLoading) isLoading = true;
+            if (state is AddNoteSuccess) Navigator.pop(context);
+            if (state is AddNoteFailure) print('failed');
+          },
+          builder: (context, state) {
+            return ModalProgressHUD(
+              child:const AddNoteForm(),
+              inAsyncCall: isLoading,
+            );
+          },
+        ),
       ),
     );
   }
